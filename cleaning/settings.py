@@ -39,9 +39,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'apuvicmef^(!j8gx&clu0u(!8m0r^etok^l0)kc!---#(i5=dt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -148,8 +148,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 1,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5,
 }
 
 # Permissions:
@@ -159,7 +159,8 @@ REST_FRAMEWORK = {
 # IsAuthenticatedOrReadOnly
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://localhost:8080",
 ]
 
 # Custom user model

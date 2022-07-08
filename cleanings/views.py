@@ -42,9 +42,10 @@ class CleaningsViewSet(viewsets.ModelViewSet):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['$title']
     filterset_fields = ['city']
+    ordering_fields = ['price']
 
 
 class CitiesViewSet(viewsets.ModelViewSet):
